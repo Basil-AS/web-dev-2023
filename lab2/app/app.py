@@ -1,58 +1,59 @@
-from flask import Flask, render_template, request
-from flask import make_response
+from flask import Flask, render_template, url_for, request, make_response
+import re
 
+# Создание экземпляра Flask
 app = Flask(__name__)
+application = app  # Дополнительное имя для экземпляра
 
+# Главная страница
 @app.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/headers')
-def headers():
-    return render_template('headers.html')
-
+# Страница для работы с аргументами
 @app.route('/args')
 def args():
     return render_template('args.html')
 
-@app.route('/cookies')
+# Страница для работы с заголовками
+@app.route('/headers')
+def headers():
+    return render_template('headers.html')
+
+# Страница для работы с cookies
+@app.route('/cookies', methods=['GET', 'POST'])
 def cookies():
-    resp = make_response(render_template('cookies.html'))
-    if "name" in request.cookies:
-        resp.delete_cookie("name")
-    else:
-        resp.set_cookie("name", "value")
-    return resp
+    response = make_response(render_template('cookies.html'))
+    if request.method == 'POST':
+        key = request.form.get('key')
+        value = request.form.get('value')
+        response.set_cookie(key, value)
+    return response
 
-@app.route('/form', methods=['GET', 'POST'])
-def form():
-    return render_template('form.html')
+# Страница для очистки cookies
+@app.route('/cookies/clear', methods=['GET', 'POST'])
+def clear_cookies():
+    response = make_response(render_template('cookies.html'))
+    for cookie in request.cookies:
+        response.set_cookie(cookie, '', expires=0)
+    return response
 
-@app.route('/calc', methods=['GET', 'POST'])
-def calc():
-    answer=''
-    error_text=''
-    if request.method=='POST':
-        try:
-            first_num = int(request.form['firstnumber'])
-            second_num = int(request.form['secondnumber'])
-        except ValueError:
-            error_text='Был передан текст. Введите, пожалуйста, число.'
-            return render_template('calc.html', answer=answer, error_text=error_text)
-        operation = request.form['operation']
-        if operation == '+':
-            answer = first_num + second_num
-        elif operation == '-':
-            answer = first_num - second_num
-        elif operation == '*':
-            answer = first_num * second_num
-        elif operation == '/':
-            try:
-                answer = first_num / second_num
-            except ZeroDivisionError:
-                error_text = 'На ноль делить нельзя'
-    return render_template('calc.html', answer=answer, error_text=error_text)
+# Страница для проверки номера телефона
+@app.route('/tel_check', methods=['GET', 'POST'])
+def tel_check():
+    if request.method == 'POST':
+        tel = request.form.get('tel')
+        if re.search(r'[^\d\s\(\)\-\.\+]', tel):
+            tel_error = "Недопустимый ввод. В номере телефона встречаются недопустимые символы."
+            return render_template('tel_check.html', tel=tel, tel_error=tel_error)
 
-@app.errorhandler(404)
-def page_not_found(error):
-    return render_template('page_not_found.html'), 404
+        d_tel = [num for num in tel if num.isdigit()]
+        if len(d_tel) in [10, 11]:
+            d_tel[0] = '8'
+            formatted_tel = "8-{}-{}-{}-{}".format(''.join(d_tel[1:4]), ''.join(d_tel[4:7]), ''.join(d_tel[7:9]), ''.join(d_tel[9:]))
+            return render_template('tel_check.html', tel=formatted_tel)
+        else:
+            tel_error = "Недопустимый ввод. Неверное количество цифр."
+            return render_template('tel_check.html', tel=tel, tel_error=tel_error)
+
+    return render_template('tel_check.html')

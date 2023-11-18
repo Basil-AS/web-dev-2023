@@ -1,0 +1,20 @@
+[2023-11-18 13:02:27 +0000] [23645] [INFO] Starting gunicorn 21.2.0
+[2023-11-18 13:02:27 +0000] [23645] [INFO] Listening at: http://0.0.0.0:8003 (23645)
+[2023-11-18 13:02:27 +0000] [23645] [INFO] Using worker: sync
+[2023-11-18 13:02:27 +0000] [23662] [INFO] Booting worker with pid: 23662
+[2023-11-18 13:02:27 +0000] [23665] [INFO] Booting worker with pid: 23665
+[2023-11-18 13:02:27 +0000] [23666] [INFO] Booting worker with pid: 23666
+[2023-11-18 13:02:27 +0000] [23667] [INFO] Booting worker with pid: 23667
+[2023-11-18 13:41:10 +0000] [23645] [INFO] Handling signal: term
+[2023-11-18 13:41:10 +0000] [23662] [INFO] Worker exiting (pid: 23662)
+[2023-11-18 13:41:10 +0000] [23667] [INFO] Worker exiting (pid: 23667)
+[2023-11-18 13:41:10 +0000] [23666] [INFO] Worker exiting (pid: 23666)
+[2023-11-18 13:41:10 +0000] [23665] [INFO] Worker exiting (pid: 23665)
+[2023-11-18 13:41:10 +0000] [23645] [INFO] Shutting down: Master
+[2023-11-18 13:41:24 +0000] [25543] [INFO] Starting gunicorn 21.2.0
+[2023-11-18 13:41:24 +0000] [25543] [INFO] Listening at: http://0.0.0.0:8003 (25543)
+[2023-11-18 13:41:24 +0000] [25543] [INFO] Using worker: sync
+[2023-11-18 13:41:24 +0000] [25562] [INFO] Booting worker with pid: 25562
+[2023-11-18 13:41:24 +0000] [25563] [INFO] Booting worker with pid: 25563
+[2023-11-18 13:41:24 +0000] [25564] [INFO] Booting worker with pid: 25564
+[2023-11-18 13:41:24 +0000] [25565] [INFO] Booting worker with pid: 25565

@@ -1,0 +1,41 @@
+[2023-11-18 12:43:10 +0000] [21149] [INFO] Starting gunicorn 21.2.0
+[2023-11-18 12:43:10 +0000] [21149] [INFO] Listening at: http://0.0.0.0:8001 (21149)
+[2023-11-18 12:43:10 +0000] [21149] [INFO] Using worker: sync
+[2023-11-18 12:43:10 +0000] [21168] [INFO] Booting worker with pid: 21168
+[2023-11-18 12:43:10 +0000] [21169] [INFO] Booting worker with pid: 21169
+[2023-11-18 12:43:11 +0000] [21170] [INFO] Booting worker with pid: 21170
+[2023-11-18 12:43:11 +0000] [21171] [INFO] Booting worker with pid: 21171
+[2023-11-18 12:48:51 +0000] [21168] [INFO] Worker exiting (pid: 21168)
+[2023-11-18 12:48:51 +0000] [21170] [INFO] Worker exiting (pid: 21170)
+[2023-11-18 12:48:51 +0000] [21171] [INFO] Worker exiting (pid: 21171)
+[2023-11-18 12:48:51 +0000] [21169] [INFO] Worker exiting (pid: 21169)
+[2023-11-18 12:48:51 +0000] [21149] [INFO] Handling signal: term
+[2023-11-18 12:48:51 +0000] [21149] [ERROR] Worker (pid:21168) was sent SIGTERM!
+[2023-11-18 12:48:51 +0000] [21149] [ERROR] Worker (pid:21169) was sent SIGTERM!
+[2023-11-18 12:48:51 +0000] [21149] [ERROR] Worker (pid:21170) was sent SIGTERM!
+[2023-11-18 12:48:51 +0000] [21149] [ERROR] Worker (pid:21171) was sent SIGTERM!
+[2023-11-18 12:48:51 +0000] [21149] [INFO] Shutting down: Master
+[2023-11-18 12:49:15 +0000] [21403] [INFO] Starting gunicorn 21.2.0
+[2023-11-18 12:49:15 +0000] [21403] [INFO] Listening at: http://0.0.0.0:8001 (21403)
+[2023-11-18 12:49:15 +0000] [21403] [INFO] Using worker: sync
+[2023-11-18 12:49:15 +0000] [21420] [INFO] Booting worker with pid: 21420
+[2023-11-18 12:49:15 +0000] [21423] [INFO] Booting worker with pid: 21423
+[2023-11-18 12:49:15 +0000] [21424] [INFO] Booting worker with pid: 21424
+[2023-11-18 12:49:15 +0000] [21425] [INFO] Booting worker with pid: 21425
+[2023-11-18 12:53:06 +0000] [21403] [INFO] Handling signal: term
+[2023-11-18 12:53:06 +0000] [21424] [INFO] Worker exiting (pid: 21424)
+[2023-11-18 12:53:06 +0000] [21425] [INFO] Worker exiting (pid: 21425)
+[2023-11-18 12:53:06 +0000] [21420] [INFO] Worker exiting (pid: 21420)
+[2023-11-18 12:53:06 +0000] [21423] [INFO] Worker exiting (pid: 21423)
+[2023-11-18 12:53:06 +0000] [21403] [ERROR] Worker (pid:21420) was sent SIGTERM!
+[2023-11-18 12:53:06 +0000] [21403] [ERROR] Worker (pid:21425) was sent SIGTERM!
+[2023-11-18 12:53:06 +0000] [21403] [ERROR] Worker (pid:21423) was sent SIGTERM!
+[2023-11-18 12:53:06 +0000] [21403] [ERROR] Worker (pid:21424) was sent SIGTERM!
+[2023-11-18 12:53:06 +0000] [21403] [INFO] Shutting down: Master
+[2023-11-18 13:02:16 +0000] [23587] [INFO] Starting gunicorn 21.2.0
+[2023-11-18 13:02:16 +0000] [23587] [INFO] Listening at: http://0.0.0.0:8001 (23587)
+[2023-11-18 13:02:16 +0000] [23587] [INFO] Using worker: sync
+[2023-11-18 13:02:16 +0000] [23606] [INFO] Booting worker with pid: 23606
+[2023-11-18 13:02:16 +0000] [23607] [INFO] Booting worker with pid: 23607
+[2023-11-18 13:02:16 +0000] [23608] [INFO] Booting worker with pid: 23608
+[2023-11-18 13:02:16 +0000] [23609] [INFO] Booting worker with pid: 23609
