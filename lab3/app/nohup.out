@@ -18,3 +18,40 @@
 [2023-11-18 13:41:24 +0000] [25563] [INFO] Booting worker with pid: 25563
 [2023-11-18 13:41:24 +0000] [25564] [INFO] Booting worker with pid: 25564
 [2023-11-18 13:41:24 +0000] [25565] [INFO] Booting worker with pid: 25565
+[2023-11-18 16:19:37 +0000] [25543] [ERROR] Worker (pid:25562) was sent SIGHUP!
+[2023-11-18 16:19:37 +0000] [25543] [ERROR] Worker (pid:25563) was sent SIGHUP!
+[2023-11-18 16:19:37 +0000] [25543] [ERROR] Worker (pid:25564) was sent SIGHUP!
+[2023-11-18 16:19:37 +0000] [25543] [ERROR] Worker (pid:25565) was sent SIGHUP!
+[2023-11-18 16:19:37 +0000] [27610] [INFO] Booting worker with pid: 27610
+[2023-11-18 16:19:37 +0000] [27629] [INFO] Booting worker with pid: 27629
+[2023-11-18 16:19:37 +0000] [27630] [INFO] Booting worker with pid: 27630
+[2023-11-18 16:19:37 +0000] [27631] [INFO] Booting worker with pid: 27631
+[2023-11-18 16:19:37 +0000] [25543] [INFO] Handling signal: hup
+[2023-11-18 16:19:37 +0000] [25543] [INFO] Hang up: Master
+[2023-11-18 16:19:37 +0000] [27632] [INFO] Booting worker with pid: 27632
+[2023-11-18 16:19:37 +0000] [27633] [INFO] Booting worker with pid: 27633
+[2023-11-18 16:19:37 +0000] [27634] [INFO] Booting worker with pid: 27634
+[2023-11-18 16:19:37 +0000] [27635] [INFO] Booting worker with pid: 27635
+[2023-11-18 16:19:37 +0000] [27610] [INFO] Worker exiting (pid: 27610)
+[2023-11-18 16:19:37 +0000] [27629] [INFO] Worker exiting (pid: 27629)
+[2023-11-18 16:19:37 +0000] [27630] [INFO] Worker exiting (pid: 27630)
+[2023-11-18 16:19:37 +0000] [27631] [INFO] Worker exiting (pid: 27631)
+[2023-11-18 16:19:37 +0000] [25543] [ERROR] Worker (pid:27631) was sent SIGTERM!
+[2023-11-18 16:19:37 +0000] [25543] [ERROR] Worker (pid:27629) was sent SIGTERM!
+[2023-11-18 16:19:37 +0000] [25543] [ERROR] Worker (pid:27630) was sent SIGTERM!
+[2023-11-19 11:42:22 +0000] [25543] [INFO] Handling signal: hup
+[2023-11-19 11:42:22 +0000] [25543] [INFO] Hang up: Master
+[2023-11-19 11:42:22 +0000] [25543] [ERROR] Worker (pid:27632) was sent SIGHUP!
+[2023-11-19 11:42:22 +0000] [25543] [ERROR] Worker (pid:27633) was sent SIGHUP!
+[2023-11-19 11:42:22 +0000] [25543] [ERROR] Worker (pid:27634) was sent SIGHUP!
+[2023-11-19 11:42:22 +0000] [81758] [INFO] Booting worker with pid: 81758
+[2023-11-19 11:42:22 +0000] [25543] [ERROR] Worker (pid:27635) was sent SIGHUP!
+[2023-11-19 11:42:22 +0000] [81795] [INFO] Booting worker with pid: 81795
+[2023-11-19 11:42:22 +0000] [81807] [INFO] Booting worker with pid: 81807
+[2023-11-19 11:42:22 +0000] [81808] [INFO] Booting worker with pid: 81808
+[2023-11-19 11:42:22 +0000] [25543] [INFO] Handling signal: term
+[2023-11-19 11:42:23 +0000] [81758] [INFO] Worker exiting (pid: 81758)
+[2023-11-19 11:42:23 +0000] [81795] [INFO] Worker exiting (pid: 81795)
+[2023-11-19 11:42:23 +0000] [81807] [INFO] Worker exiting (pid: 81807)
+[2023-11-19 11:42:23 +0000] [81808] [INFO] Worker exiting (pid: 81808)
+[2023-11-19 11:42:23 +0000] [25543] [INFO] Shutting down: Master
