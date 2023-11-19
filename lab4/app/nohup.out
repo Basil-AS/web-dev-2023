@@ -1,0 +1,21 @@
+[2023-11-19 14:27:16 +0000] [2594] [INFO] Starting gunicorn 21.2.0
+[2023-11-19 14:27:16 +0000] [2594] [INFO] Listening at: http://0.0.0.0:8004 (2594)
+[2023-11-19 14:27:16 +0000] [2594] [INFO] Using worker: sync
+[2023-11-19 14:27:16 +0000] [2614] [INFO] Booting worker with pid: 2614
+[2023-11-19 14:27:17 +0000] [2615] [INFO] Booting worker with pid: 2615
+[2023-11-19 14:27:17 +0000] [2616] [INFO] Booting worker with pid: 2616
+[2023-11-19 14:27:17 +0000] [2617] [INFO] Booting worker with pid: 2617
+[2023-11-19 14:27:57 +0000] [2594] [INFO] Handling signal: term
+[2023-11-19 14:27:57 +0000] [2617] [INFO] Worker exiting (pid: 2617)
+[2023-11-19 14:27:57 +0000] [2615] [INFO] Worker exiting (pid: 2615)
+[2023-11-19 14:27:57 +0000] [2614] [INFO] Worker exiting (pid: 2614)
+[Row(id=1, login='admin', password_hash='65e84be33532fb784c48129675f9eff3a682b27168c0ea744b2cf58ee02337c5', last_name='Коржов', first_name='Арсений', middle_name=None, role_id=1, created_at=datetime.datetime(2023, 10, 22, 10, 51, 48)), Row(id=143, login='user1', password_hash='3875034e17855bac03a3cc9e107b1d28a9b44313d381c3335588525b4e70b55b', last_name='Киркор', first_name='Николай', middle_name='ВЛдаимирович', role_id=3, created_at=datetime.datetime(2023, 10, 23, 16, 56, 10))]
+[2023-11-19 14:27:57 +0000] [2616] [INFO] Worker exiting (pid: 2616)
+[2023-11-19 14:27:57 +0000] [2594] [INFO] Shutting down: Master
+[2023-11-19 14:30:01 +0000] [2792] [INFO] Starting gunicorn 21.2.0
+[2023-11-19 14:30:01 +0000] [2792] [INFO] Listening at: http://0.0.0.0:8004 (2792)
+[2023-11-19 14:30:01 +0000] [2792] [INFO] Using worker: sync
+[2023-11-19 14:30:01 +0000] [2811] [INFO] Booting worker with pid: 2811
+[2023-11-19 14:30:01 +0000] [2812] [INFO] Booting worker with pid: 2812
+[2023-11-19 14:30:01 +0000] [2813] [INFO] Booting worker with pid: 2813
+[2023-11-19 14:30:01 +0000] [2814] [INFO] Booting worker with pid: 2814
