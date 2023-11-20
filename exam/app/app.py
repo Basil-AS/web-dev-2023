@@ -21,7 +21,7 @@ app.register_blueprint(book_bp)
 
 init_login_manager(app)
 
-from models import Book, Image, Genre, Review
+from models import Book, Image, Genre, Review, BookGenre
 from tools import BookFilter
 PER_PAGE = 5
 

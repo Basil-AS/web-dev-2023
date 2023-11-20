@@ -10,7 +10,7 @@
             <div>
                 <label for="name">Название:</label>
                 <input type="text" id="name" name="name">
-            <!-- </div>
+            </div>
             <div>
                 <label for="genre">Жанр:</label>
                 <select id="genre" name="genre_ids" multiple>
@@ -18,7 +18,7 @@
                     <option value="{{ genre.id }}">{{ genre.name }}</option>
                     {% endfor %}
                 </select>
-            </div> -->
+            </div>
             <div>
                 <label for="year">Год:</label>
                 <select name="year">
@@ -41,7 +41,7 @@
                 <label for="author">Автор:</label>
                 <input type="text" id="author" name="author">
             </div>
-            <button type="submit">Найти</button>
+            <button type="submit" class="btn btn-secondary">Найти</button>
             <button type="reset" class="btn btn-secondary">Сбросить фильтры</button>
 
         </form>
