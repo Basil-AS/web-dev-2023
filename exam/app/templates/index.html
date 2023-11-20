@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% from 'pagination.html' import render_pagination %}
+{% block content %}
+<div class="container">
+    <div class="books-list container-fluid mt-3 mb-3">
+    </div>
+
+    <div class="books-list container-fluid mt-3 mb-3">
+        <form action="{{ url_for('index') }}" method="get">
+            <div>
+                <label for="name">Название:</label>
+                <input type="text" id="name" name="name">
+            <!-- </div>
+            <div>
+                <label for="genre">Жанр:</label>
+                <select id="genre" name="genre_ids" multiple>
+                    {% for genre in genres %}
+                    <option value="{{ genre.id }}">{{ genre.name }}</option>
+                    {% endfor %}
+                </select>
+            </div> -->
+            <div>
+                <label for="year">Год:</label>
+                <select name="year">
+                    <option value="">Не выбрано</option>
+                    {% for year in years %}
+                        <option value="{{ year }}">{{ year }}</option>
+                    {% endfor %}
+                </select>
+                
+            </div>
+            <div>
+                <label for="volume_from">Объём от:</label>
+                <input type="number" id="volume_from" name="volume_from">
+            </div>
+            <div>
+                <label for="volume_to">Объём до:</label>
+                <input type="number" id="volume_to" name="volume_to">
+            </div>
+            <div>
+                <label for="author">Автор:</label>
+                <input type="text" id="author" name="author">
+            </div>
+            <button type="submit">Найти</button>
+            <button type="reset" class="btn btn-secondary">Сбросить фильтры</button>
+
+        </form>
+        {% for book in books %}
+        <div class="row p-3 border rounded mb-3" data-url="{{ url_for('books.show', book_id=book.id) }}">
+            {% for image in images %}
+            {% if image.id == book.id_image %}
+            <img class="w-25 h-25" src="{{ url_for('image', image_id=image.id) }}">
+            {% endif %}
+            {% endfor %}
+            <div class="col-md-9 align-items-center">
+                <div class="d-flex">
+                    <h4 class="text-uppercase">{{ book.name }}</h4>
+                    <p class="ms-auto rating"></p>
+                </div>
+                <p class="text-muted my-3">{{ book.author }}</p>
+                {% for genre in book.genres %}
+                {{ genre.name }}{% if loop.last %}{% else %}, {% endif %}
+                {% endfor %}
+                <p class="ms-auto rating">
+                </p>
+                <p>Кол-во рецензий:</p>
+                <p class="text-muted my-3">{{ reviews[loop.index - 1][0] }}</p>
+
+                <p class="ms-auto rating">
+                    <span>★</span> <span>{{ "%.2f" | format(reviews[loop.index - 1][1]) }}</span>
+                </p>
+                <p class="text-muted my-3">{{ book.year }}</p>
+                </p>
+                <a href="{{ url_for('books.show', book_id=book.id) }}" class="btn btn-primary">Подробнее</a>
+                {% if current_user.is_authenticated %}
+                {% if current_user.can('edit_book', record=book) %}
+                <a class="btn btn-primary" href="{{ url_for('books.edit_book', book_id=book.id) }}">Редактировать</a>
+                {% endif %}
+                {% if current_user.can('delete', record=book) %}
+                <button class="btn btn-danger" data-bs-toggle="modal"
+                    data-url="{{ url_for('books.delete_book', book_id=book.id) }}" data-title="{{ book.title }}"
+                    data-bs-target="#deleteBook">Удалить</button>
+                {% endif %}
+                {% endif %}
+
+
+                <!-- Modal -->
+                <div class="modal fade" id="deleteBook" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">Удаление книги</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Вы уверены, что хотите удалить книгу <span id="bookName"></span>?</p>
+                                <form id="deleteBookForm" method="POST"
+                                    action="{{ url_for('books.delete_book', book_id=book.id) }}">
+                                    <input type="submit" id="deleteBookButton" style="display: none;">
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+                                <label for="deleteBookButton" class="btn btn-danger">Удалить</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        {% endfor %}
+
+        <div class="mb-5">
+            {{ render_pagination(pagination, request.endpoint, search_params) }}
+        </div>
+    </div>
+
+
+    {% if current_user.is_authenticated %}
+    {% if current_user.is_admin() %}
+    <div class="text-center my-3">
+        <a class="btn btn-lg btn-dark" href="{{ url_for('books.add_book') }}">Добавить книгу</a>
+    </div>
+    {% endif %}
+    {% endif %}
+
+    <script src="{{ url_for('static', filename='book.js') }}"></script>
+
+</div>
+{% endblock %}

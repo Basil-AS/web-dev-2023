@@ -1,0 +1,22 @@
+[2023-11-19 14:43:10 +0000] [3661] [INFO] Starting gunicorn 21.2.0
+[2023-11-19 14:43:10 +0000] [3661] [INFO] Listening at: http://0.0.0.0:8007 (3661)
+[2023-11-19 14:43:10 +0000] [3661] [INFO] Using worker: sync
+[2023-11-19 14:43:10 +0000] [3681] [INFO] Booting worker with pid: 3681
+Failed to find attribute 'app' in 'app'.
+[2023-11-19 14:43:10 +0000] [3681] [INFO] Worker exiting (pid: 3681)
+[2023-11-19 14:43:10 +0000] [3661] [ERROR] Worker (pid:3681) exited with code 4
+[2023-11-19 14:43:10 +0000] [3661] [ERROR] Shutting down: Master
+[2023-11-19 14:43:10 +0000] [3661] [ERROR] Reason: App failed to load.
+[2023-11-19 14:44:52 +0000] [3758] [INFO] Starting gunicorn 21.2.0
+[2023-11-19 14:44:52 +0000] [3758] [INFO] Listening at: http://0.0.0.0:8007 (3758)
+[2023-11-19 14:44:52 +0000] [3758] [INFO] Using worker: sync
+[2023-11-19 14:44:52 +0000] [3777] [INFO] Booting worker with pid: 3777
+Failed to find attribute 'app' in 'app'.
+[2023-11-19 14:44:52 +0000] [3777] [INFO] Worker exiting (pid: 3777)
+[2023-11-19 14:44:52 +0000] [3778] [INFO] Booting worker with pid: 3778
+Failed to find attribute 'app' in 'app'.
+[2023-11-19 14:44:52 +0000] [3778] [INFO] Worker exiting (pid: 3778)
+[2023-11-19 14:44:52 +0000] [3758] [ERROR] Worker (pid:3777) exited with code 4
+[2023-11-19 14:44:52 +0000] [3758] [ERROR] Worker (pid:3778) was sent SIGTERM!
+[2023-11-19 14:44:52 +0000] [3758] [ERROR] Shutting down: Master
+[2023-11-19 14:44:52 +0000] [3758] [ERROR] Reason: App failed to load.
