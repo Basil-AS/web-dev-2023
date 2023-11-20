@@ -6,47 +6,58 @@
     </div>
 
     <div class="books-list container-fluid mt-3 mb-3">
+
         <form action="{{ url_for('index') }}" method="get">
-            <div>
-                <label for="name">Название:</label>
-                <input type="text" id="name" name="name">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="name" name="name" placeholder="Название">
+                <label for="name">Название</label>
+              </div>
+              
+              <div>
+                <label>Жанр</label>
+                <div>
+                  {% for genre in genres %}
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="genre{{ genre.id }}" name="genre_ids" value="{{ genre.id }}">
+                      <label class="form-check-label" for="genre{{ genre.id }}">
+                        {{ genre.name }}
+                      </label>
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+              
+              <div class="mb-3">
+                <label for="genre">Год:</label>
+                {% for year in years %}
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="year[]" id="year{{ year }}" value="{{ year }}">
+                    <label class="form-check-label" for="year{{ year }}">
+                        {{ year }}
+                    </label>
+                </div>
+                {% endfor %}
             </div>
-            <div>
-                <label for="genre">Жанр:</label>
-                <select id="genre" name="genre_ids" multiple>
-                    {% for genre in genres %}
-                    <option value="{{ genre.id }}">{{ genre.name }}</option>
-                    {% endfor %}
-                </select>
-            </div>
-            <div>
-                <label for="year">Год:</label>
-                <select name="year">
-                    <option value="">Не выбрано</option>
-                    {% for year in years %}
-                        <option value="{{ year }}">{{ year }}</option>
-                    {% endfor %}
-                </select>
-                
-            </div>
-            <div>
+            
+
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="volume_from" name="volume_from" placeholder="Объём от">
                 <label for="volume_from">Объём от:</label>
-                <input type="number" id="volume_from" name="volume_from">
-            </div>
-            <div>
-                <label for="volume_to">Объём до:</label>
-                <input type="number" id="volume_to" name="volume_to">
-            </div>
-            <div>
-                <label for="author">Автор:</label>
-                <input type="text" id="author" name="author">
-            </div>
+              </div>
+              <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="volume_to" name="volume_to" placeholder="Объём до">
+                  <label for="volume_to">Объём до:</label>
+                </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="author" name="author" placeholder="Автор">
+                <label for="name">Автор</label>
+              </div>
             <button type="submit" class="btn btn-secondary">Найти</button>
             <button type="reset" class="btn btn-secondary">Сбросить фильтры</button>
 
         </form>
         {% for book in books %}
-        <div class="row p-3 border rounded mb-3" data-url="{{ url_for('books.show', book_id=book.id) }}">
+        <div class="row p-3 border rounded books-list container-fluid mt-4 mb-3 " data-url="{{ url_for('books.show', book_id=book.id) }}">
             {% for image in images %}
             {% if image.id == book.id_image %}
             <img class="w-25 h-25" src="{{ url_for('image', image_id=image.id) }}">

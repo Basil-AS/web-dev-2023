@@ -37,3 +37,11 @@
     background-position: center;
     background-size: cover;
 }
+
+.custom-select-scrollable {
+    height: auto;
+    max-height: 150px; /* Высота для 4-х элементов */
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  

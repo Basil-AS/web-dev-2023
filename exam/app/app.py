@@ -38,7 +38,7 @@ def index():
 
     search_name = request.args.get('name')
     search_genre_ids = request.args.getlist('genre_ids')
-    search_year = request.args.get('year')
+    search_years = request.args.getlist('year[]')
     search_volume_from = request.args.get('volume_from', type=int)
     search_volume_to = request.args.get('volume_to', type=int)
     search_author = request.args.get('author')
@@ -50,8 +50,8 @@ def index():
         search_query = search_query.join(BookGenre, Book.id == BookGenre.book_id)\
                                    .filter(BookGenre.genre_id.in_(search_genre_ids))
     
-    if search_year:
-        search_query = search_query.filter(Book.year == search_year)
+    if search_years:
+        search_query = search_query.filter(Book.year.in_(search_years))
 
     if search_volume_from:
         search_query = search_query.filter(Book.volume >= search_volume_from)
@@ -68,23 +68,14 @@ def index():
     for book in books:
         reviews_list = Review.query.filter_by(book_id=book.id).all()
         reviews_count = len(reviews_list)
-        if reviews_count > 0:
-            rating_summ = 0
-            for review in reviews_list:
-                rating_summ += review.rating 
-            if rating_summ > 0:
-                average_rating = rating_summ / reviews_count
-            else:
-                average_rating = 0
-        else:
-            average_rating = 0
+        average_rating = sum(review.rating for review in reviews_list) / reviews_count if reviews_count > 0 else 0
         reviews.append([reviews_count, average_rating])
     images = Image.query.all()
     genres = Genre.query.all()
     years = db.session.query(Book.year.distinct()).order_by(Book.year).all()
     years = [year[0] for year in years]  # Преобразование в список
 
-    return render_template('index.html',  books=books, images=images, genres=genres, years=years, pagination=pagination, search_params=search_params(), reviews=reviews)
+    return render_template('index.html', books=books, images=images, genres=genres, years=years, pagination=pagination, search_params=search_params(), reviews=reviews)
 
 @app.route('/image/<image_id>')
 def image(image_id):
